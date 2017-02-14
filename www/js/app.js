@@ -22,7 +22,7 @@ angular.module('starter', ['ionic','ngCordova'])
     }
   });
 })
-.controller('utilityCntrl',function($scope,$cordovaFlashlight,$cordovaBarcodeScanner){
+.controller('utilityCntrl',function($scope,$cordovaFlashlight,$cordovaGeolocation,$cordovaBarcodeScanner){
   $scope.flashlight=function(){
     $cordovaFlashlight.available().then(function(availability) {
     var avail = availability; // is available
@@ -55,5 +55,30 @@ document.addEventListener("deviceready", function () {
       });
 })
 }
+$scope.location=function(){
+  var watchOptions = {
+    timeout : 3000,
+    enableHighAccuracy: false // may cause errors if true
+  };
+
+  var watch = $cordovaGeolocation.watchPosition(watchOptions);
+  watch.then(
+    null,
+    function(err) {
+      console.log(err)
+    },
+    function(position) {
+      alert("alert")
+    $scope.a  = position.coords.latitude
+    $scope.b = position.coords.longitude
+    alert($scope.a)
+   $http.get("http://api.openweathermap.org/data/2.5/weather?lat="+ $scope.a +"&lon="+ $scope.b +"&units=imperial&APPID=a3684df18eaf96bfea41257b288cb5ae").success(function(weather){
+   $scope.weather = weather;
+  }).error(function (err){
+  alert(error)
+})
+  });
+}
+
 
 })

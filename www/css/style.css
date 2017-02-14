@@ -6,6 +6,7 @@ background-size: cover;
     background: transparent;
     color: white;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    border-bottom-width: 2px;
 }
 .item.item-text-wrap{
     background: transparent;
