@@ -1,0 +1,29 @@
+.bodyContent{
+background: url("../bg4.jpg");
+background-size: cover;
+}
+.card{
+    background: transparent;
+    color: white;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+}
+.item.item-text-wrap{
+    background: transparent;
+    text-align: center;
+}
+.item h1{
+    color: black;
+}
+.image{
+    background: transparent;
+    width: 230px;
+    height: 230px;
+    margin: 10px;
+    left: 20px;
+    right: 20px;
+    top: 20px;
+    bottom: 20px;
+    align-items: center;
+
+
+}
