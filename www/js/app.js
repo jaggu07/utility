@@ -22,30 +22,15 @@ angular.module('starter', ['ionic','ngCordova'])
     }
   });
 })
-.controller('utilityCntrl',function($scope,$cordovaFlashlight,$cordovaGeolocation,$cordovaBarcodeScanner){
+.controller('utilityCntrl',function($scope,$http,$cordovaFlashlight,$cordovaGeolocation,$cordovaBarcodeScanner){
+  //flashlight
   $scope.flashlight=function(){
-    $cordovaFlashlight.available().then(function(availability) {
-    var avail = availability; // is available
-  }, function () {
-    alert("FlashLight not available")
-  });
-
-  $cordovaFlashlight.switchOn()
-    .then(
-      function (success) { /* success */ },
-      function (error) { alert("dc")/* error */ });
-
-  $cordovaFlashlight.switchOff()
-    .then(
-      function (success) { /* success */ },
-      function (error) { /* error */ });
-
   $cordovaFlashlight.toggle()
-    .then(function (success) { /* success */ },
-      function (error) { /* error */ });
+    .then(function (success) { },
+      function (error) { alert("error") });
 }
+//Barcode
   $scope.scanner=function(){
-document.addEventListener("deviceready", function () {
  $cordovaBarcodeScanner.scan()
       .then(function(barcodeData) {
         alert(barcodeData.text)
@@ -53,9 +38,24 @@ document.addEventListener("deviceready", function () {
       }, function(error) {
         // An error occurred
       });
-})
 }
+//location
 $scope.location=function(){
+  var posOptions = {
+    timeout: 10000,
+    enableHighAccuracy: false
+  };
+  $cordovaGeolocation.getCurrentPosition(posOptions).then(function(position){
+    $scope.lat = position.coords.latitude;
+    $scope.long = position.coords.longitude;
+      alert($scope.lat)
+  },
+  function(err){
+    alert(err)
+  } )
+}
+//weather
+$scope.weather=function(){
   var watchOptions = {
     timeout : 3000,
     enableHighAccuracy: false // may cause errors if true
