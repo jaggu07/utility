@@ -42,12 +42,12 @@
   </div>
   <div class="card">
   <div class="item item-text-wrap">
-    <img class="image" src="flashlight.png" ng-click="flashlight()">
+    <img class="image" src="flashlight.png" ng-click="flashlight()" >
     <img class="image" src="barcode.png" ng-click="scanner()">
-    <img class="image" src="location.png" ng-click="location()">
-    <h1>{{$scope.lat}}</h1>
+    <img class="image" src="location.png" ng-click="openModal('locationPage')" ng-model="location" ng-init="location=true">
+    <h1>{{$scope.t}}</h1>
     <h1>{{$scope.long}}</h1>
-    <img class="image" src="weather.png" ng-click="weather()">
+    <img class="image" src="weather.png" ng-click="openModal('weatherPage')">
   </div>
 </div>
       </ion-content>

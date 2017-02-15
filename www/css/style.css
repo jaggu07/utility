@@ -25,6 +25,8 @@ background-size: cover;
     top: 20px;
     bottom: 20px;
     align-items: center;
-
-
+}
+.bodyContentModel{
+background: url("../bg1.jpg");
+background-size: cover;
 }

@@ -1,18 +1,26 @@
- <ion-content class="content">
-        <div ng-controller="GeoCtrl">
-          <div class="list card">
+      <ion-modal-view>    <ion-header-bar class="bar-positive">
+      <div class="buttons">
+        <button class="button button-icon ion-android-arrow-back" ng-click="closeModal()">
+        </button>
+      </div>
+    </ion-header-bar>
+        <ion-content class="bodyContentModel" ng-init="">
+          <div ng-if="loction">
+          <h2>Latitude: {{lat}}</h2>
+          <h2>Longitute: {{long}}</h2>
+          </div>
+          <div ng-if="weather">
+             <div class="list card">
             <div class="item item-body">
-              <div class="item item-body">
-          <button class="button button-block button-dark" ng-click="loc()">Temperature by Location</button><br>
-              </div>
           <h1 class="">{{weather.name}}</h1>
           <p class="temparature" ng-bind="{{weather.main.temp}}">Temperature: </p>
-          <p class="temparature">Minimum Temperature: {{weather.main.temp_min}}</p>
-          <p class="temparature">Maximum Temperature:{{weather.main.temp_max}}</p>
-          <p class="temparature">Pressure: {{weather.main.pressure}}</p>
-          <p class="temparature">Wind: {{weather.wind.speed}}mph</p>
-          <p class="temparature">Humidity: {{weather.main.humidity}}</p>
+          <p class="temparature">{{weather.main.temp_min}}</p>
+          <p class="temparature">{{weather.main.temp_max}}</p>
+          <p class="temparature">{{weather.main.pressure}}</p>
+          <p class="temparature">{{weather.wind.speed}}</p>
+          <p class="temparature">{{weather.main.humidity}}</p>
         </div>
+             </div>
           </div>
-        </div>
-      </ion-content>
+        </ion-content>
+      </ion-modal-view>
