@@ -22,7 +22,23 @@ angular.module('starter', ['ionic','ngCordova'])
     }
   });
 })
-.controller('utilityCntrl',function($scope,$ionicModal,$http,$cordovaFlashlight,$cordovaGeolocation,$cordovaBarcodeScanner){
+
+.controller('utilityCntrl',function($scope,$state,$ionicModal,$http,$cordovaFlashlight,$cordovaGeolocation,$cordovaBarcodeScanner){
+  //ionic model
+  $ionicModal.fromTemplateUrl('templates/location.html', {
+          scope: $scope,
+          animation: 'slide-in-up'
+        }).then(function(modal) {
+          $scope.locationModel= modal;
+        });
+
+     $ionicModal.fromTemplateUrl('templates/weather.html', {
+          scope: $scope,
+          animation: 'slide-in-up'
+        }).then(function(modal) {
+          $scope.weatherModel= modal;
+        });
+
   //flashlight
   $scope.flashlight=function(){
   $cordovaFlashlight.toggle()
@@ -39,18 +55,9 @@ angular.module('starter', ['ionic','ngCordova'])
         // An error occurred
       });
 }
-  $ionicModal.fromTemplateUrl('templates/location.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-  $scope.openModal = function(page) {
-    $scope.id=page;
-    alert(page)
-    switch(page){
-      case 'locationPage':
-      alert("f")
-    $scope.modal.show();
+//location
+ $scope.ShowLocation = function (){
+         $scope.locationModel.show()
     var posOptions = {
     timeout: 10000,
     enableHighAccuracy: false
@@ -58,37 +65,50 @@ angular.module('starter', ['ionic','ngCordova'])
   $cordovaGeolocation.getCurrentPosition(posOptions).then(function(position){
     $scope.lat = position.coords.latitude;
     $scope.long = position.coords.longitude;
-  },
-  function(err){
+    $scope.latLng = new google.maps.LatLng($scope.lat, $scope.long);
+    $scope.mapOptions = {
+      center: $scope.latLng, 
+      zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+     $scope.map = new google.maps.Map(document.getElementById("map"), $scope.mapOptions);
+    google.maps.event.addListener($scope.map, 'idle', function(){
+    $scope.marker = new google.maps.Marker({
+      map: $scope.map,
+      animation: google.maps.Animation.DROP,
+      position: $scope.latLng
+  });      
+
+});
+  },function(err){
     alert(err)
-    $scope.abc = err;
-  } )
-   $scope.closeModal = function() {
-    $scope.modal.hide();
+  });
+}
+  $scope.closeModal = function() {
+    $scope.weatherModel.hide();
+    $scope.locationModel.hide();
+
   };
-  break;
-  case 'weatherPage':
-  alert("weather")
-    $scope.modal.show();
+//weather
+     $scope.ShowWeather= function (){
+         $scope.weatherModel.show()
    var watchOptions = {
     timeout : 3000,
     enableHighAccuracy: false // may cause errors if true
   };
-
+ $http.get("http://api.openweathermap.org/data/2.5/weather?lat=11&lon=77.02&units=imperial&APPID=a3684df18eaf96bfea41257b288cb5ae").success(function(weather){
+   $scope.weather = weather;
+   console.log(JSON.stringify(weather))
+  })
 $cordovaGeolocation.getCurrentPosition(watchOptions).then(function(position) {
     $scope.a  = position.coords.latitude
     $scope.b = position.coords.longitude
    $http.get("http://api.openweathermap.org/data/2.5/weather?lat="+ $scope.a +"&lon="+ $scope.b +"&units=imperial&APPID=a3684df18eaf96bfea41257b288cb5ae").success(function(weather){
    $scope.weather = weather;
-   alert(JSON.stringify(weather))
   }),
   function (err){
   alert(error)
 }
   });
-  break;
-  default:
-  alert("h")
-}
-}
+    }
+
 });

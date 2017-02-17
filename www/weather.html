@@ -1,0 +1,23 @@
+      <ion-modal-view>    <ion-header-bar class="bar-positive">
+      <div class="buttons">
+        <button class="button button-icon ion-android-arrow-back" ng-click="closeModal()">
+        </button>
+      </div>
+    </ion-header-bar>
+        <ion-content class="bodyContentModel" ng-init="">
+           <div class="list card">
+            <div class="item item-body">
+              <div class="item item-body">
+          <button class="button button-block button-dark" ng-click="loc()">Temperature by Location</button><br>
+              </div>
+          <h1 class="">{{weather.name}}</h1>
+          <p class="temparature" ng-bind="{{weather.main.temp}}">Temperature: </p>
+          <p class="temparature">Minimum Temperature: {{weather.main.temp_min}}</p>
+          <p class="temparature">Maximum Temperature:{{weather.main.temp_max}}</p>
+          <p class="temparature">Pressure: {{weather.main.pressure}}</p>
+          <p class="temparature">Wind: {{weather.wind.speed}}mph</p>
+          <p class="temparature">Humidity: {{weather.main.humidity}}</p>
+        </div>
+          </div>
+        </ion-content>
+      </ion-modal-view>
