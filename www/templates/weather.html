@@ -1,19 +1,26 @@
         <ion-modal-view>
-          <ion-header-bar class="bar bar-header bar-positive">
-          <button class="button button-icon ion-android-arrow-back" ng-click="closeModal()"></button>
-        </ion-header-bar>
         <ion-content class="bodyContentweather">
           <div>
+          <button class="button-icon ion-android-arrow-back" ng-click="closeModal()"></button>
+            <span class="weatherTitle">Weather</span>
+          </div><hr>
              <div class="list card">
             <div class="item item-body">
-          <h1 class="">{{weather.name}}</h1>
-          <p class="temparature">Temperature:{{weather.main.temp}}&#x2109;</p>
-          <p class="temparature">pressure:{{weather.main.pressure}}</p>
-          <p class="temparature">speed:{{weather.wind.speed}}</p>
-          <p class="temparature">humidity:{{weather.main.humidity}}</p>
-          <p class="temparature">id:{{id}}</p>
-        </div>
-             </div>
+              <h1 class="temparature">{{weather.name}}</h1>
+              <h2 class="temparature">{{date | date:'EEE, MMM dd'}}</h2><br>
+              <p class="temp">{{weather.main.temp  | number:0}}&#x2109;</p><br>
+              <p class="temparature">{{weather.weather[0].description}}</p>
           </div>
+        </div>
+        <div class="row">
+          <div class="col .col-33"><p class="humidity">{{weather.main.humidity}}%</p></div>
+          <div class="col .col-33"><p class="humidity">{{weather.wind.speed}}</p></div>
+          <div class="col .col-33"><p class="humidity">{{weather.coord.lat | number:0}},{{weather.coord.lon | number:0}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col .col-33"><img class="humidity" src="../img/humidity.png"></div>
+          <div class="col .col-33"><img class="humidity" src="../img/wind.png"></div>
+          <div class="col .col-33"><img class="humidity" src="../img/here.png"></div>
+        </div>
         </ion-content>
         </ion-modal-view>

@@ -1,12 +1,9 @@
 <ion-modal-view>
-        <ion-header-bar class="bar bar-header bar-positive">
-          <button class="button button-icon ion-android-arrow-back" ng-click="closeModal()"></button>
-        </ion-header-bar>
-        <ion-content class="bodyContentModel">
-          <div>
-          <h2>Latitude: {{lat}}</h2>
-          <h2>Longitute: {{long}}</h2>
-          </div>
+  <ion-header-bar class="bar bar-herader bar-positive" style="height: 85px">
+    <button class="button button-icon ion-android-arrow-back" ng-click="closeModal()"></button>
+  <h1 class="title">Location</h1>
+  </ion-header-bar>
+        <ion-content>
           <div id="map" data-tap-disabled="true"></div>
         </ion-content>
 </ion-modal-view>

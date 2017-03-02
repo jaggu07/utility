@@ -1,5 +1,6 @@
+/* index */
 .bodyContent{
-background: url("../bg4.jpg");
+background: url("../img/bg4.jpg");
 background-size: cover;
 }
 .card{
@@ -17,31 +18,26 @@ background-size: cover;
 }
 .image{
     background: transparent;
-    width: 230px;
-    height: 230px;
-    margin: 10px;
-    left: 20px;
+    width: 120px;
+    height: 120px;
+    margin-left: 40px;
+    margin-top: 40px;
+    left: 40px;
     right: 20px;
     top: 20px;
     bottom: 20px;
     align-items: center;
 }
-.bodyContentModel{
-background: url("../bg1.jpg");
-background-size: cover;
-}
 
+/*location*/
 .scroll {
     height: 100%;
 }
  
 #map {
+    top:65px;
     width: 100%;
     height: 100%;
-}
-.bodyContentweather{
-background: url("../bg2.jpeg");
-background-size: cover;
 }
 .list.card{
 background: transparent;
@@ -50,10 +46,74 @@ color: white;
 .item.item-body{
     background: transparent;
 }
+/*ionic model*/
+button.button-icon.ion-android-arrow-back{
+    width: 70px;
+    font-size: 40px;
+    height: 70px;
+    color: white;
+    margin: 5px;
+    padding: 3px;
+   
+}
+h1.title.title-left{
+    top:22px;
+}
+.platform-android .bar .title{
+    font-size: 2.5em;
+}
+
+/* weather */
+.bodyContentweather{
+background: #ef7841;     
+background-size: cover;
+}
 p.temparature{
-    color:  white;
+    color: white;
     font-weight: bolder;
-    font-size: 1.7em;
+    font-size: 2.5em;
     display: block; 
     font-family: serif ;
+    text-align: center;
+}
+h1.temparature{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: Tahoma;
+    display: block;
+    font-weight: bold;
+
+}
+h2.temparature{
+    color:  #ffffff;
+    text-align: center;
+    font-size: 30px;
+    font-family: Tahoma;
+}
+p.temp{
+    color:  white;
+    text-align: center;
+    font-size: 75px;
+    font-family: Tahoma;
+}
+span.weatherTitle{
+    left: 30px;
+    top:22px;
+    font-size: 2.5em;
+    color: white;
+}
+p.humidity{
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-bottom: 3px;
+    font-size: 2.2em;
+    color: white;
+    top: 100px;
+}
+img.humidity{
+    margin-left: 30px;
+    margin-top:20px;
+    width: 65px;
+    height: 70px;
 }

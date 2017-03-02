@@ -90,15 +90,12 @@ angular.module('starter', ['ionic','ngCordova'])
   };
 //weather
      $scope.ShowWeather= function (){
+       $scope.date = new Date();
          $scope.weatherModel.show()
    var watchOptions = {
     timeout : 3000,
     enableHighAccuracy: false // may cause errors if true
   };
- $http.get("http://api.openweathermap.org/data/2.5/weather?lat=11&lon=77.02&units=imperial&APPID=a3684df18eaf96bfea41257b288cb5ae").success(function(weather){
-   $scope.weather = weather;
-   console.log(JSON.stringify(weather))
-  })
 $cordovaGeolocation.getCurrentPosition(watchOptions).then(function(position) {
     $scope.a  = position.coords.latitude
     $scope.b = position.coords.longitude
