@@ -8,7 +8,7 @@
             <div class="item item-body">
               <h1 class="temparature">{{weather.name}}</h1>
               <h2 class="temparature">{{date | date:'EEE, MMM dd'}}</h2><br>
-              <p class="temp">{{weather.main.temp  | number:0}}&#x2109;</p><br>
+              <p class="temp">{{degree  | number:0}}	&#8451;</p><br>
               <p class="temparature">{{weather.weather[0].description}}</p>
           </div>
         </div>
@@ -18,9 +18,9 @@
           <div class="col .col-33"><p class="humidity">{{weather.coord.lat | number:0}},{{weather.coord.lon | number:0}}</p></div>
         </div>
         <div class="row">
-          <div class="col .col-33"><img class="humidity" src="../img/humidity.png"></div>
-          <div class="col .col-33"><img class="humidity" src="../img/wind.png"></div>
-          <div class="col .col-33"><img class="humidity" src="../img/here.png"></div>
+          <div class="col .col-33"><img class="humidity" src="img/humidity.png"></div>
+          <div class="col .col-33"><img class="humidity" src="img/wind.png"></div>
+          <div class="col .col-33"><img class="humidity" src="img/here.png"></div>
         </div>
         </ion-content>
         </ion-modal-view>

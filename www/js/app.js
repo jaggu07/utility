@@ -101,6 +101,7 @@ $cordovaGeolocation.getCurrentPosition(watchOptions).then(function(position) {
     $scope.b = position.coords.longitude
    $http.get("http://api.openweathermap.org/data/2.5/weather?lat="+ $scope.a +"&lon="+ $scope.b +"&units=imperial&APPID=a3684df18eaf96bfea41257b288cb5ae").success(function(weather){
    $scope.weather = weather;
+   $scope.degree = ($scope.weather.main.temp-32)*5.0/9.0;
   }),
   function (err){
   alert(error)

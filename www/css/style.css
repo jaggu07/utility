@@ -1,12 +1,12 @@
 /* index */
 .bodyContent{
-background: url("../img/bg4.jpg");
+background: #cfcfcf;
 background-size: cover;
 }
 .card{
     background: transparent;
     color: white;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0);
     border-bottom-width: 2px;
 }
 .item.item-text-wrap{
@@ -18,16 +18,17 @@ background-size: cover;
 }
 .image{
     background: transparent;
-    width: 120px;
-    height: 120px;
-    margin-left: 40px;
-    margin-top: 40px;
-    left: 40px;
-    right: 20px;
-    top: 20px;
-    bottom: 20px;
-    align-items: center;
+    width: auto;
+    max-height: 150px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 25%;
 }
+.row{
+ margin:10px;
+}
+
 
 /*location*/
 .scroll {
@@ -98,7 +99,7 @@ p.temp{
     font-family: Tahoma;
 }
 span.weatherTitle{
-    left: 30px;
+    margin-left: 50px;
     top:22px;
     font-size: 2.5em;
     color: white;
